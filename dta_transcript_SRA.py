@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+#dta for download, trim and assembled
 import re, sys, os
 from sys import argv
 from Bio import SeqIO
