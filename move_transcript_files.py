@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+#move and rename transcript files from dta_transcript_SRA.py
+#use google drive as files can be huge and in large number
+
 import re, sys, os
 from sys import argv
 from Bio import SeqIO
