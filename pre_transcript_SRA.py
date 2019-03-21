@@ -27,9 +27,11 @@ def main():
 		else:
 			print("Issue with bbduk!")
 			break
-		os.system('rnaspades.py -1 '+dataname+'_cl_1.fastq -2 '+dataname+'_cl_2.fastq -o '+dataname+'_SPAdes -m 10 -t 2')
-		print("Compressing and moving files ",dataname," in Google Drive \n")
+		print("Compressing files ",dataname," \n")
 		os.system('gzip '+dataname+'*.fastq')
+		print("Assembling "+dataname+" with rnaSPAdes \n"
+		os.system('rnaspades.py -1 '+dataname+'_cl_1.fastq -2 '+dataname+'_cl_2.fastq -o '+dataname+'_SPAdes -m 10 -t 2')
+		print("moving files (reads and assembled data) ",dataname," in Google Drive \n")
 		os.system('mv '+dataname+'*.fastq.gz /Volumes/GoogleDrive/My\ Drive/Micromonas_BU/done_cl_files/')
 		os.system('mv '+dataname+'_SPAdes/ /Volumes/GoogleDrive/My\ Drive/Micromonas_BU/')
 		
