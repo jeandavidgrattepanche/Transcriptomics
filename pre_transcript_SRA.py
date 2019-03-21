@@ -1,3 +1,6 @@
+##replace /Users/...path.../bbmap by bbmap installation path
+## replace Micromonas by your project title/species
+
 import re, sys, os
 from sys import argv
 from Bio import SeqIO
@@ -16,7 +19,7 @@ def main():
 			lr=int(read.description.split('length=')[1])-25
 			if lr > 0:
 				break
-		os.system('bbduk.sh in1='+dataname+'_1.fastq in2='+dataname+'_2.fastq out1='+dataname+'_cl_1.fastq out2='+dataname+'_cl_2.fastq qtrim=rl trimq=10 maq=30 ref=/Users/tuk61790/Documents/software/bbmap/resources/adapters.fa ktrim=r k=23 mink=11 hdist=1 tpe tbo minlen='+str(lr))
+		os.system('bbduk.sh in1='+dataname+'_1.fastq in2='+dataname+'_2.fastq out1='+dataname+'_cl_1.fastq out2='+dataname+'_cl_2.fastq qtrim=rl trimq=10 maq=30 ref=/Users/...path.../bbmap/resources/adapters.fa ktrim=r k=23 mink=11 hdist=1 tpe tbo minlen='+str(lr))
 		if os.path.isfile(dataname+'_cl_1.fastq'):
 			os.system('rm '+dataname+'_1.fastq')
 			os.system('rm '+dataname+'_2.fastq')
