@@ -1,3 +1,5 @@
+OBSOLETE SCRIPT => USE pre_transcript_SRA.py
+
 #!/usr/bin/python3
 #dta for download, trim and assembled
 #use google drive as files can be huge and in large number
