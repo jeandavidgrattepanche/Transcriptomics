@@ -5,10 +5,13 @@ from Bio import SeqIO
 def main():
 	script, SRR_list = argv
 	for data in open(SRR_list):
-		lr=0
+		lr=0; check= 0
 		dataname = data.split('\n')[0]
 		print("Downloading and preparing ",dataname)
-		os.system('fasterq-dump -v '+dataname)
+		while check == 0:
+			os.system('fasterq-dump -v '+dataname)
+			if os.path.isfile(dataname+'_1.fastq'):
+				check = 1
 		for read in SeqIO.parse(dataname+'_1.fastq','fastq'):
 			lr=int(read.description.split('length=')[1])-25
 			if lr > 0:
